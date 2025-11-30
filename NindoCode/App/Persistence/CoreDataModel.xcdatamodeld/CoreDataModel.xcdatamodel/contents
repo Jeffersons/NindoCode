@@ -6,4 +6,7 @@
         <attribute name="optionsData" optional="YES" attributeType="Binary"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="VersionEntity" representedClassName="VersionEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
 </model>
