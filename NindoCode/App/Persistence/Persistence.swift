@@ -1,10 +1,3 @@
-//
-//  Persistence.swift
-//  NindoCode
-//
-//  Created by Jefferson Batista on 26/11/25.
-//
-
 import CoreData
 
 struct PersistenceController {
