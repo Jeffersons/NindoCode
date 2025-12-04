@@ -1,27 +1,29 @@
-//
-//  QuestionRepository.swift
-//  NindoCode
-//
-//  Created by Jefferson Batista on 26/11/25.
-//
-
-import Foundation
 import CoreData
 
 protocol QuestionRepositoryProtocol {
-    func fetchAll() throws -> [QuestionEntity]
+    func fetchQuestions() throws -> [Question]
 }
 
-struct QuestionRepository: QuestionRepositoryProtocol {
+final class QuestionRepository: QuestionRepositoryProtocol {
+
     private let context: NSManagedObjectContext
 
-    init(context: NSManagedObjectContext) {
+    init(context: NSManagedObjectContext = PersistenceController.shared.container.viewContext) {
         self.context = context
     }
 
-    func fetchAll() throws -> [QuestionEntity] {
+    func fetchQuestions() throws -> [Question] {
         let request: NSFetchRequest<QuestionEntity> = QuestionEntity.fetchRequest()
-        request.returnsObjectsAsFaults = false
-        return try context.fetch(request)
+
+        let entities = try context.fetch(request)
+
+        return entities.map { entity in
+            Question(
+                id: entity.safeId,
+                text: entity.safeText,
+                options: entity.options,
+                correctIndex: Int(entity.correctIndex)
+            )
+        }
     }
 }

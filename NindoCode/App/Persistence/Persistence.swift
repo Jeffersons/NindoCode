@@ -6,7 +6,6 @@ struct PersistenceController {
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
-        let model = CoreDataModelBuilder.makeModel()
         container = NSPersistentContainer(name: "CoreDataModel")
 
         if inMemory {
@@ -19,5 +18,6 @@ struct PersistenceController {
             }
         }
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        QuestionsImporter.updateQuestionsIfNeeded(context: container.viewContext)
     }
 }
