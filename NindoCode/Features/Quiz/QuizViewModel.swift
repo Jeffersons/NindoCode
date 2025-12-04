@@ -1,16 +1,9 @@
-//
-//  QuizViewModel.swift
-//  NindoCode
-//
-//  Created by Jefferson Batista on 26/11/25.
-//
-
-import Foundation
 import Combine
 import CoreData
 
 @MainActor
 final class QuizViewModel: ObservableObject {
+
     @Published private(set) var currentIndex: Int = 0
     @Published private(set) var score: Int = 0
     @Published var selectedIndex: Int? = nil
@@ -18,7 +11,7 @@ final class QuizViewModel: ObservableObject {
     @Published var showFinished: Bool = false
 
     private let repository: QuestionRepositoryProtocol
-    private var questions: [QuestionEntity] = []
+    private var questions: [Question] = []
 
     private let pointsRight = 10
     private let pointsWrong = 5
@@ -30,13 +23,15 @@ final class QuizViewModel: ObservableObject {
 
     func loadQuestions() {
         do {
-            let fetched = try repository.fetchAll()
+            let fetched = try repository.fetchQuestions()
             questions = fetched.shuffled()
+
             currentIndex = 0
             score = 0
             selectedIndex = nil
             isAnswered = false
             showFinished = questions.isEmpty
+
         } catch {
             print("Fetch error: \(error)")
             questions = []
@@ -44,7 +39,7 @@ final class QuizViewModel: ObservableObject {
         }
     }
 
-    var currentQuestion: QuestionEntity? {
+    var currentQuestion: Question? {
         guard questions.indices.contains(currentIndex) else { return nil }
         return questions[currentIndex]
     }
@@ -59,9 +54,13 @@ final class QuizViewModel: ObservableObject {
     }
 
     func confirmAnswer() {
-        guard let q = currentQuestion, let selected = selectedIndex, !isAnswered else { return }
+        guard let q = currentQuestion,
+              let selected = selectedIndex,
+              !isAnswered else { return }
+
         isAnswered = true
-        if selected == Int(q.correctIndex) {
+
+        if selected == q.correctIndex {
             score += pointsRight
         } else {
             score = max(0, score - pointsWrong)
@@ -70,9 +69,11 @@ final class QuizViewModel: ObservableObject {
 
     func nextQuestion() {
         guard isAnswered else { return }
+
         selectedIndex = nil
         isAnswered = false
         currentIndex += 1
+
         if currentIndex >= questions.count {
             showFinished = true
         }

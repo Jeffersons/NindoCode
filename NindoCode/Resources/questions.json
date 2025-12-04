@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "text": "Qual é a função de entrada padrão em Kotlin?",
+      "options": ["start()", "main()", "run()", "init()"],
+      "correctIndex": 1
+    },
+    {
+      "text": "Qual operador elvis em Kotlin?",
+      "options": ["?:", "??", "?.", "!!"],
+      "correctIndex": 0
+    }
+  ]
+}
