@@ -4,7 +4,9 @@
         <attribute name="correctIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="optionsData" optional="YES" attributeType="Binary"/>
+        <attribute name="subject" optional="YES" attributeType="String"/>
         <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="topic" optional="YES" attributeType="String"/>
     </entity>
     <entity name="VersionEntity" representedClassName="VersionEntity" syncable="YES" codeGenerationType="class">
         <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>

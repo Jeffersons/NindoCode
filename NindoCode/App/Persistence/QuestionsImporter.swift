@@ -51,6 +51,8 @@ enum QuestionsImporter {
             entity.text = item.text
             entity.correctIndex = Int16(item.correctIndex)
             entity.optionsData = try? JSONEncoder().encode(item.options)
+            entity.subject = item.subject
+            entity.topic = item.topic
         }
 
         try? context.save()
