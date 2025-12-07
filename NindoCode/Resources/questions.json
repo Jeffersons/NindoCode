@@ -1,15 +1,19 @@
 {
-  "version": 1,
+  "version": 2,
   "questions": [
     {
-      "text": "Qual é a função de entrada padrão em Kotlin?",
-      "options": ["start()", "main()", "run()", "init()"],
-      "correctIndex": 1
+      "subject": "Swift",
+      "topic": "Arrays",
+      "text": "How do you create an empty Array of Int in Swift?",
+      "options": ["[]", "[Int]()", "Array<Int>()", "int[]"],
+      "correctIndex": 2
     },
     {
-      "text": "Qual operador elvis em Kotlin?",
-      "options": ["?:", "??", "?.", "!!"],
-      "correctIndex": 0
+      "subject": "Kotlin",
+      "topic": "Lifecycle",
+      "text": "Which method is called when an Activity becomes visible?",
+      "options": ["onCreate", "onStart", "onResume", "onPause"],
+      "correctIndex": 1
     }
   ]
 }

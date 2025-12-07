@@ -6,6 +6,8 @@ struct QuestionsFile: Codable {
 }
 
 struct QuestionDTO: Codable {
+    let subject: String
+    let topic: String
     let text: String
     let options: [String]
     let correctIndex: Int

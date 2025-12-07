@@ -22,7 +22,9 @@ final class QuestionRepository: QuestionRepositoryProtocol {
                 id: entity.safeId,
                 text: entity.safeText,
                 options: entity.options,
-                correctIndex: Int(entity.correctIndex)
+                correctIndex: Int(entity.correctIndex),
+                subject: entity.safeSubject,
+                topic: entity.safeTopic
             )
         }
     }
