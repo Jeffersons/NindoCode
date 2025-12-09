@@ -1,10 +1,3 @@
-//
-//  QuizView.swift
-//  NindoCode
-//
-//  Created by Jefferson Batista on 26/11/25.
-//
-
 import SwiftUI
 import CoreData
 
@@ -27,15 +20,15 @@ struct QuizView: View {
                         .accessibilityLabel("Pontuação \(viewModel.score)")
                 }
 
-                if let q = viewModel.currentQuestion {
+                if let question = viewModel.currentQuestion {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(q.text ?? "")
+                        Text(question.text)
                             .font(.title3)
                             .bold()
                             .multilineTextAlignment(.leading)
 
                         VStack(spacing: 12) {
-                            ForEach(Array(q.options.enumerated()), id: \.0) { idx, option in
+                            ForEach(Array(question.options.enumerated()), id: \.0) { idx, option in
                                 Button {
                                     viewModel.selectOption(idx)
                                 } label: {
@@ -46,11 +39,23 @@ struct QuizView: View {
                                     }
                                     .padding()
                                     .frame(maxWidth: .infinity)
-                                    .background(buttonBackground(idx: idx, isAnswered: viewModel.isAnswered, correctIndex: Int(q.correctIndex), selected: viewModel.selectedIndex))
+                                    .background(buttonBackground(
+                                        idx: idx,
+                                        isAnswered: viewModel.isAnswered,
+                                        correctIndex: Int(question.correctIndex),
+                                        selected: viewModel.selectedIndex)
+                                    )
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 12)
-                                            .stroke(buttonBorder(idx: idx, isAnswered: viewModel.isAnswered, correctIndex: Int(q.correctIndex), selected: viewModel.selectedIndex), lineWidth: 2)
+                                            .stroke(buttonBorder(
+                                                idx: idx,
+                                                isAnswered: viewModel.isAnswered,
+                                                correctIndex: Int(question.correctIndex),
+                                                selected: viewModel.selectedIndex
+                                            ),
+                                            lineWidth: 2
+                                        )
                                     )
                                 }
                                 .disabled(viewModel.isAnswered)
