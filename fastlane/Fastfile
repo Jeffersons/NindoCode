@@ -1,0 +1,69 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+Dir[File.join(__dir__, "helpers/*.rb")].each { |file| require_relative file }
+default_platform(:ios)
+
+platform :ios do
+  desc "Create commit"
+  lane :create_commit do
+    UI.header("🧰 Installing bundle...")
+    sh("bundle install", log: false) 
+      
+    if Git_Helper.isDevelopBranch() == false 
+      UI.header("Commiting changes")
+      Dir.chdir("../") do
+        sh("git add .", log: false)
+
+        message = Commit_Helper.get_message
+        sh("git commit -m \"#{message}\"")
+
+        UI.header("Pushing commit")
+        sh("git push")
+      end
+    end
+  end
+
+  desc "Run unit tests and create Pull request"
+  lane :create_pr do   
+    UI.header("🧰 Installing bundle...")
+    sh("bundle install", log: false) 
+
+    UI.header("✍️ Creating PR body...")
+    body = PR_Template_Helper.get_pr_template(self)
+
+    cache_file = File.read(Constants::PR_CACHE_PATH)
+    cache_data = JSON.parse(cache_file)
+    title = cache_data["title"]
+
+    UI.header("🔍 Validating uncommited changes...")
+    if Git_Helper.check_for_diffs()
+
+      UI.header("🔍 Validating expectations file changes")
+      if Git_Helper.check_for_blocked_files_changes() 
+        
+        UI.header("🧹 Running SwiftLint ...")
+        if Lint_Helper.run_swift_lint(self)
+
+          UI.header("🔬 Running unit tests...")
+          if Tests_Helper.run_unit_tests(self)
+            UI.header("📤 Creating pull request...")
+            PR_Request_Helper.new_pull_request(title, body, self)
+          end
+        end
+      end
+    end
+  end
+end
