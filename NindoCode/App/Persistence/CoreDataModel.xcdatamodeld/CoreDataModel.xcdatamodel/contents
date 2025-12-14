@@ -9,6 +9,7 @@
         <attribute name="topic" optional="YES" attributeType="String"/>
     </entity>
     <entity name="VersionEntity" representedClassName="VersionEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="subject" optional="YES" attributeType="String"/>
         <attribute name="version" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
 </model>

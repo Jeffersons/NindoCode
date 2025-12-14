@@ -1,0 +1,19 @@
+
+{
+  "subject": "Swift",
+  "version": 1,
+  "questions": [
+    {
+      "topic": "Arrays",
+      "text": "How do you create an empty array of Int in Swift?",
+      "options": ["[]", "[Int]()", "Array<Int>()", "int[]"],
+      "correctIndex": 2
+    },
+    {
+      "topic": "Optionals",
+      "text": "What does the ? symbol represent in Swift?",
+      "options": ["Nullable", "Optional", "Pointer", "Reference"],
+      "correctIndex": 1
+    }
+  ]
+}
