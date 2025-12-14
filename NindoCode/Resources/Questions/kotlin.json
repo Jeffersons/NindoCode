@@ -1,0 +1,12 @@
+{
+  "subject": "Kotlin",
+  "version": 1,
+  "questions": [
+    {
+      "topic": "Lifecycle",
+      "text": "Which method is called when an Activity becomes visible?",
+      "options": ["onCreate", "onStart", "onResume", "onPause"],
+      "correctIndex": 1
+    }
+  ]
+}
