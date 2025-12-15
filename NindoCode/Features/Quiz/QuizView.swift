@@ -12,7 +12,7 @@ struct QuizView: View {
         NavigationStack {
             VStack(spacing: 24) {
                 HStack {
-                    Text("Quiz Kotlin")
+                    Text(viewModel.title)
                         .font(.title).bold()
                     Spacer()
                     Text("Pontos: \(viewModel.score)")
@@ -79,14 +79,23 @@ struct QuizView: View {
                         }
                     }
                 } else {
-                    ContentUnavailableView("Sem perguntas", systemImage: "questionmark.circle", description: Text("Não há perguntas disponíveis."))
+                    ContentUnavailableView("Sem perguntas",
+                                           systemImage: "questionmark.circle",
+                                           description: Text("Não há perguntas disponíveis.")
+                    )
                 }
 
                 Spacer()
             }
             .padding()
             .navigationBarHidden(true)
-            .alert("Quiz finalizado!", isPresented: $viewModel.showFinished) {
+            .alert(
+                "Quiz finalizado!",
+                isPresented: Binding(
+                    get: { viewModel.showFinished },
+                    set: { _ in viewModel.dismissFinishedAlert() }
+                )
+            ) {
                 Button("Reiniciar", role: .cancel) {
                     viewModel.restart()
                 }
@@ -121,6 +130,6 @@ struct QuizView: View {
 
 #Preview {
     let repo = QuestionRepository(context: PersistenceController.shared.container.viewContext)
-    let vm = QuizViewModel(repository: repo)
-    return QuizView(viewModel: vm)
+    let vm = QuizViewModel(repository: repo, filter: nil)
+    QuizView(viewModel: vm)
 }

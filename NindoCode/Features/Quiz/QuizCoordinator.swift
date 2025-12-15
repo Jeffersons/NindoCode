@@ -1,25 +1,27 @@
-//
-//  QuizCoordinator.swift
-//  NindoCode
-//
-//  Created by Jefferson Batista on 26/11/25.
-//
-
 import SwiftUI
 import CoreData
 
 final class QuizCoordinator {
-    private let context: NSManagedObjectContext
-    private let repository: QuestionRepositoryProtocol
 
-    init(context: NSManagedObjectContext) {
+    private let context: NSManagedObjectContext
+    private let filter: QuizFilter
+
+    init(
+        context: NSManagedObjectContext,
+        filter: QuizFilter
+    ) {
         self.context = context
-        self.repository = QuestionRepository(context: context)
+        self.filter = filter
     }
 
     @ViewBuilder
     func start() -> some View {
-        let viewModel = QuizViewModel(repository: repository)
+        let repository = QuestionRepository(context: context)
+        let viewModel = QuizViewModel(
+            repository: repository,
+            filter: filter
+        )
+
         QuizView(viewModel: viewModel)
     }
 }
