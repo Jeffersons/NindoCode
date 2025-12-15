@@ -4,40 +4,73 @@ import CoreData
 @MainActor
 final class QuizViewModel: ObservableObject {
 
+    // MARK: - Published state
+
     @Published private(set) var currentIndex: Int = 0
     @Published private(set) var score: Int = 0
-    @Published var selectedIndex: Int? = nil
+    @Published var selectedIndex: Int?
     @Published private(set) var isAnswered: Bool = false
-    @Published var showFinished: Bool = false
+    @Published private(set) var showFinished: Bool = false
+
+    // MARK: - Dependencies
 
     private let repository: QuestionRepositoryProtocol
+    private let filter: QuizFilter?
+
+    // MARK: - Data
+
     private var questions: [Question] = []
+
+    // MARK: - Scoring
 
     private let pointsRight = 10
     private let pointsWrong = 5
 
-    init(repository: QuestionRepositoryProtocol) {
+    // MARK: - Init
+
+    init(
+        repository: QuestionRepositoryProtocol,
+        filter: QuizFilter?
+    ) {
         self.repository = repository
+        self.filter = filter
         loadQuestions()
     }
+    
+    // MARK: Title
+
+    var title: String {
+        if let subject = filter?.subject {
+            return "Quiz \(subject)"
+        }
+        return "Quiz"
+    }
+
+    // MARK: - Load
 
     func loadQuestions() {
         do {
-            let fetched = try repository.fetchQuestions()
+            let fetched = try repository.fetchQuestions(filter: filter)
             questions = fetched.shuffled()
 
-            currentIndex = 0
-            score = 0
-            selectedIndex = nil
-            isAnswered = false
+            resetState()
             showFinished = questions.isEmpty
 
         } catch {
-            print("Fetch error: \(error)")
+            print("QuizViewModel fetch error:", error)
             questions = []
             showFinished = true
         }
     }
+
+    private func resetState() {
+        currentIndex = 0
+        score = 0
+        selectedIndex = nil
+        isAnswered = false
+    }
+
+    // MARK: - Accessors
 
     var currentQuestion: Question? {
         guard questions.indices.contains(currentIndex) else { return nil }
@@ -48,19 +81,21 @@ final class QuizViewModel: ObservableObject {
         questions.count
     }
 
+    // MARK: - Actions
+
     func selectOption(_ index: Int) {
         guard !isAnswered else { return }
         selectedIndex = index
     }
 
     func confirmAnswer() {
-        guard let q = currentQuestion,
+        guard let question = currentQuestion,
               let selected = selectedIndex,
               !isAnswered else { return }
 
         isAnswered = true
 
-        if selected == q.correctIndex {
+        if selected == question.correctIndex {
             score += pointsRight
         } else {
             score = max(0, score - pointsWrong)
@@ -77,6 +112,10 @@ final class QuizViewModel: ObservableObject {
         if currentIndex >= questions.count {
             showFinished = true
         }
+    }
+    
+    func dismissFinishedAlert() {
+        showFinished = false
     }
 
     func restart() {

@@ -1,24 +1,47 @@
-//
-//  AppCoordinator.swift
-//  NindoCode
-//
-//  Created by Jefferson Batista on 26/11/25.
-//
-
 import SwiftUI
+import Combine
 import CoreData
 
-final class AppCoordinator {
+final class AppCoordinator: ObservableObject {
+
+    enum Route {
+        case setup
+        case quiz(QuizFilter)
+    }
+
+    @Published private(set) var route: Route = .setup
+
     private let persistence: PersistenceController
-    private let quizCoordinator: QuizCoordinator
 
     init(persistence: PersistenceController) {
         self.persistence = persistence
-        self.quizCoordinator = QuizCoordinator(context: persistence.container.viewContext)
+    }
+
+    func startQuiz(with filter: QuizFilter) {
+        route = .quiz(filter)
     }
 
     @ViewBuilder
     func start() -> some View {
-        quizCoordinator.start()
+        let context = persistence.container.viewContext
+        let repository = QuestionRepository(context: context)
+
+        switch route {
+        case .setup:
+            SetupCoordinator(
+                repository: repository,
+                onFinish: { [weak self] filter in
+                    self?.startQuiz(with: filter)
+                }
+            )
+            .start()
+
+        case .quiz(let filter):
+            QuizCoordinator(
+                context: context,
+                filter: filter
+            )
+            .start()
+        }
     }
 }

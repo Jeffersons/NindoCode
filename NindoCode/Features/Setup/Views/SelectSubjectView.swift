@@ -2,25 +2,51 @@ import SwiftUI
 import CoreData
 
 struct SelectSubjectView: View {
-
     @ObservedObject var viewModel: SetupViewModel
-    let onNext: () -> Void
+    let onSubjectSelected: () -> Void
 
     var body: some View {
-        List {
-            ForEach(viewModel.subjects, id: \.self) { subject in
-                Button(subject) {
-                    viewModel.selectedSubject = subject
-                    onNext()
+        VStack(alignment: .leading, spacing: 24) {
+
+            Text("Choose a subject")
+                .font(.largeTitle)
+                .bold()
+
+            VStack(spacing: 0) {
+                ForEach(viewModel.subjects, id: \.self) { subject in
+                    Button {
+                        viewModel.selectedSubject = subject
+                        onSubjectSelected()
+                    } label: {
+                        HStack {
+                            Text(subject)
+                                .font(.headline)
+                                .foregroundStyle(.blue)
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.secondary)
+                        }
+                        .padding()
+                    }
+
+                    if subject != viewModel.subjects.last {
+                        Divider()
+                    }
                 }
             }
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color(.systemBackground))
+            )
+
+            Spacer()
         }
-        .navigationTitle("Select subject")
+        .padding()
     }
 }
 
 #Preview {
     let repo = QuestionRepository(context: PersistenceController.shared.container.viewContext)
     let vm = SetupViewModel(repository: repo)
-    return SelectSubjectView(viewModel: vm, onNext: {})
+    SelectSubjectView(viewModel: vm, onSubjectSelected: {})
 }

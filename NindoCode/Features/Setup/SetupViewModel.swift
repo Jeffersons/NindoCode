@@ -27,7 +27,7 @@ final class SetupViewModel: ObservableObject {
 
     private func loadSubjectsAndTopics() {
         do {
-            let allQuestions = try repository.fetchQuestions()
+            let allQuestions = try repository.fetchQuestions(filter: nil)
 
             // Unique subjects
             subjects = Array(Set(allQuestions.map { $0.subject }))
