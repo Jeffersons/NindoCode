@@ -73,3 +73,21 @@ final class SetupViewModel: ObservableObject {
         selectedTopic = nil
     }
 }
+
+extension SetupViewModel {
+
+    static func previewMock(
+        subjects: [String],
+        topicsBySubject: [String: [String]],
+        selectedSubject: String
+    ) -> SetupViewModel {
+
+        let dummyRepo = PreviewQuestionRepository()
+
+        let vm = SetupViewModel(repository: dummyRepo)
+        vm.selectedSubject = selectedSubject
+        vm.subjects = subjects
+        vm.topicsBySubject = topicsBySubject
+        return vm
+    }
+}

@@ -4,6 +4,12 @@ protocol QuestionRepositoryProtocol {
     func fetchQuestions(filter: QuizFilter?) throws -> [Question]
 }
 
+final class PreviewQuestionRepository: QuestionRepositoryProtocol {
+    func fetchQuestions(filter: QuizFilter?) throws -> [Question] {
+        []
+    }
+}
+
 final class QuestionRepository: QuestionRepositoryProtocol {
 
     private let context: NSManagedObjectContext
