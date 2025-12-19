@@ -1,6 +1,13 @@
 import SwiftUI
 
 final class SetupCoordinator {
+    
+    enum Step {
+        case subject
+        case topic
+    }
+
+    @State private var step: Step = .subject
 
     private let repository: QuestionRepositoryProtocol
     private let onFinish: (QuizFilter) -> Void
@@ -17,12 +24,25 @@ final class SetupCoordinator {
     func start() -> some View {
         let viewModel = SetupViewModel(repository: repository)
 
-        SelectSubjectView(
-            viewModel: viewModel,
-            onSubjectSelected: {
-                let filter = viewModel.makeQuizFilter()
-                self.onFinish(filter)
-            }
-        )
+        switch step {
+        case .subject:
+            SelectSubjectView(
+                viewModel: viewModel,
+                onSubjectSelected: {
+                    self.step = .topic
+                }
+            )
+
+        case .topic:
+            SelectTopicView(
+                viewModel: viewModel,
+                onTopicSelected: {
+                },
+                onBack: {
+                    viewModel.resetSelection()
+                    self.step = .subject
+                }
+            )
+        }
     }
 }

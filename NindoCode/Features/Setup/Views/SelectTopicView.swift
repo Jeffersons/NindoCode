@@ -5,10 +5,22 @@ struct SelectTopicView: View {
 
     @ObservedObject var viewModel: SetupViewModel
     let onTopicSelected: () -> Void
+    let onBack: () -> Void
 
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 24) {
+
+                HStack {
+                    Button {
+                        onBack()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.headline)
+                    }
+
+                    Spacer()
+                }
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Choose a topic")
@@ -32,9 +44,7 @@ struct SelectTopicView: View {
                                 Text(topic)
                                     .font(.headline)
                                     .foregroundStyle(.blue)
-
                                 Spacer()
-
                                 Image(systemName: "chevron.right")
                                     .foregroundStyle(.secondary)
                             }
@@ -75,6 +85,6 @@ struct SelectTopicView: View {
 
     SelectTopicView(
         viewModel: viewModel,
-        onTopicSelected: {}
+        onTopicSelected: {}, onBack: {}
     )
 }
