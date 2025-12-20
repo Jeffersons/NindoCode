@@ -13,11 +13,13 @@ struct PersistenceController {
         }
 
         container.loadPersistentStores { _, error in
-            if let error = error as NSError? {
-                fatalError("Unresolved Core Data error \(error), \(error.userInfo)")
+            if let error {
+                fatalError(error.localizedDescription)
             }
         }
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        QuestionsImporter.updateQuestionsIfNeeded(context: container.viewContext)
+
+        QuestionsImporter.updateQuestionsIfNeeded(
+            context: container.viewContext
+        )
     }
 }

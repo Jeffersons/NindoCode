@@ -1,16 +1,18 @@
 import SwiftUI
+import Combine
 
-final class SetupCoordinator {
-    
+@MainActor
+final class SetupCoordinator: ObservableObject {
+
     enum Step {
         case subject
         case topic
     }
 
-    @State private var step: Step = .subject
+    @Published var step: Step = .subject
 
-    private let repository: QuestionRepositoryProtocol
-    private let onFinish: (QuizFilter) -> Void
+    let repository: QuestionRepositoryProtocol
+    let onFinish: (QuizFilter) -> Void
 
     init(
         repository: QuestionRepositoryProtocol,
@@ -20,29 +22,11 @@ final class SetupCoordinator {
         self.onFinish = onFinish
     }
 
-    @ViewBuilder
-    func start() -> some View {
-        let viewModel = SetupViewModel(repository: repository)
+    func goToTopic() {
+        step = .topic
+    }
 
-        switch step {
-        case .subject:
-            SelectSubjectView(
-                viewModel: viewModel,
-                onSubjectSelected: {
-                    self.step = .topic
-                }
-            )
-
-        case .topic:
-            SelectTopicView(
-                viewModel: viewModel,
-                onTopicSelected: {
-                },
-                onBack: {
-                    viewModel.resetSelection()
-                    self.step = .subject
-                }
-            )
-        }
+    func goBackToSubject() {
+        step = .subject
     }
 }

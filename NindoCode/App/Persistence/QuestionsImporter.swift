@@ -19,11 +19,10 @@ enum QuestionsImporter {
     private static func loadQuestionFileNames() -> [String] {
         guard let urls = Bundle.main.urls(
             forResourcesWithExtension: "json",
-            subdirectory: "Questions"
+            subdirectory: nil
         ) else {
             return []
         }
-
         return urls.map {
             $0.deletingPathExtension().lastPathComponent
         }
@@ -36,13 +35,12 @@ enum QuestionsImporter {
         guard let url = Bundle.main.url(
             forResource: fileName,
             withExtension: "json",
-            subdirectory: "Questions"
+            subdirectory: nil
         ),
         let data = try? Data(contentsOf: url)
         else {
             return
         }
-
         let decoder = JSONDecoder()
 
         guard let file = try? decoder.decode(QuestionsFile.self, from: data) else {

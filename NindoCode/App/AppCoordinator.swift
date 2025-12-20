@@ -28,13 +28,13 @@ final class AppCoordinator: ObservableObject {
 
         switch route {
         case .setup:
-            SetupCoordinator(
-                repository: repository,
-                onFinish: { [weak self] filter in
-                    self?.startQuiz(with: filter)
-                }
-            )
-            .start()
+            let setupCoordinator = SetupCoordinator(
+                repository: repository
+            ) { filter in
+                self.startQuiz(with: filter)
+            }
+
+            SetupFlowView(coordinator: setupCoordinator)
 
         case .quiz(let filter):
             QuizCoordinator(
