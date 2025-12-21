@@ -27,13 +27,17 @@ final class QuizViewModel: ObservableObject {
     private let pointsWrong = 5
 
     // MARK: - Init
+    
+    let onExit: () -> Void
 
     init(
         repository: QuestionRepositoryProtocol,
-        filter: QuizFilter?
+        filter: QuizFilter?,
+        onExit: @escaping () -> Void
     ) {
         self.repository = repository
         self.filter = filter
+        self.onExit = onExit
         loadQuestions()
     }
     
@@ -61,6 +65,10 @@ final class QuizViewModel: ObservableObject {
             questions = []
             showFinished = true
         }
+    }
+    
+    func quitQuiz() {
+        onExit()
     }
 
     private func resetState() {

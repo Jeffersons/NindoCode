@@ -1,0 +1,556 @@
+{
+  "subject": "Swift",
+  "version": 2,
+  "questions": [
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que significa ARC em Swift?",
+      "options": [
+        "Automatic Reference Counting",
+        "Advanced Runtime Control",
+        "Automatic Resource Cleanup",
+        "Advanced Reference Compiler"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual palavra-chave ajuda a evitar retain cycles?",
+      "options": [
+        "weak",
+        "lazy",
+        "static",
+        "mutating"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quando usar unowned em vez de weak?",
+      "options": [
+        "Quando a referência nunca será nil",
+        "Quando há risco de retain cycle",
+        "Quando usamos structs",
+        "Quando ARC está desativado"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que acontece quando o contador de referências chega a zero?",
+      "options": [
+        "O objeto é desalocado",
+        "O objeto vira nil",
+        "ARC pausa",
+        "A memória é cacheada"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quais tipos usam ARC?",
+      "options": [
+        "Classes",
+        "Structs",
+        "Enums",
+        "Tuples"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual captura de closure pode causar retain cycle?",
+      "options": [
+        "self capturado fortemente",
+        "Constantes locais",
+        "Tipos por valor",
+        "Funções estáticas"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Como capturar self de forma fraca em uma closure?",
+      "options": [
+        "[weak self]",
+        "[unowned self]",
+        "[self weak]",
+        "[capture self]"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que é um retain cycle?",
+      "options": [
+        "Dois objetos se referenciando fortemente",
+        "Uso excessivo de weak",
+        "Erro de compilação",
+        "Stack overflow"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual tipo NÃO utiliza ARC?",
+      "options": [
+        "Struct",
+        "Class",
+        "UIView",
+        "NSObject"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Para que serve o deinit?",
+      "options": [
+        "Executa código ao desalocar o objeto",
+        "Inicializa memória",
+        "Limpa retain cycles",
+        "Reseta ARC"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que significa ARC em Swift?",
+      "options": [
+        "Automatic Reference Counting",
+        "Advanced Runtime Control",
+        "Automatic Resource Cleanup",
+        "Advanced Reference Compiler"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual palavra-chave ajuda a evitar retain cycles?",
+      "options": [
+        "weak",
+        "lazy",
+        "static",
+        "mutating"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quando usar unowned em vez de weak?",
+      "options": [
+        "Quando a referência nunca será nil",
+        "Quando há risco de retain cycle",
+        "Quando usamos structs",
+        "Quando ARC está desativado"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que acontece quando o contador de referências chega a zero?",
+      "options": [
+        "O objeto é desalocado",
+        "O objeto vira nil",
+        "ARC pausa",
+        "A memória é cacheada"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quais tipos usam ARC?",
+      "options": [
+        "Classes",
+        "Structs",
+        "Enums",
+        "Tuples"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual captura de closure pode causar retain cycle?",
+      "options": [
+        "self capturado fortemente",
+        "Constantes locais",
+        "Tipos por valor",
+        "Funções estáticas"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Como capturar self de forma fraca em uma closure?",
+      "options": [
+        "[weak self]",
+        "[unowned self]",
+        "[self weak]",
+        "[capture self]"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que é um retain cycle?",
+      "options": [
+        "Dois objetos se referenciando fortemente",
+        "Uso excessivo de weak",
+        "Erro de compilação",
+        "Stack overflow"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual tipo NÃO utiliza ARC?",
+      "options": [
+        "Struct",
+        "Class",
+        "UIView",
+        "NSObject"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Para que serve o deinit?",
+      "options": [
+        "Executa código ao desalocar o objeto",
+        "Inicializa memória",
+        "Limpa retain cycles",
+        "Reseta ARC"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que significa ARC em Swift?",
+      "options": [
+        "Automatic Reference Counting",
+        "Advanced Runtime Control",
+        "Automatic Resource Cleanup",
+        "Advanced Reference Compiler"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual palavra-chave ajuda a evitar retain cycles?",
+      "options": [
+        "weak",
+        "lazy",
+        "static",
+        "mutating"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quando usar unowned em vez de weak?",
+      "options": [
+        "Quando a referência nunca será nil",
+        "Quando há risco de retain cycle",
+        "Quando usamos structs",
+        "Quando ARC está desativado"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que acontece quando o contador de referências chega a zero?",
+      "options": [
+        "O objeto é desalocado",
+        "O objeto vira nil",
+        "ARC pausa",
+        "A memória é cacheada"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quais tipos usam ARC?",
+      "options": [
+        "Classes",
+        "Structs",
+        "Enums",
+        "Tuples"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual captura de closure pode causar retain cycle?",
+      "options": [
+        "self capturado fortemente",
+        "Constantes locais",
+        "Tipos por valor",
+        "Funções estáticas"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Como capturar self de forma fraca em uma closure?",
+      "options": [
+        "[weak self]",
+        "[unowned self]",
+        "[self weak]",
+        "[capture self]"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que é um retain cycle?",
+      "options": [
+        "Dois objetos se referenciando fortemente",
+        "Uso excessivo de weak",
+        "Erro de compilação",
+        "Stack overflow"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual tipo NÃO utiliza ARC?",
+      "options": [
+        "Struct",
+        "Class",
+        "UIView",
+        "NSObject"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Para que serve o deinit?",
+      "options": [
+        "Executa código ao desalocar o objeto",
+        "Inicializa memória",
+        "Limpa retain cycles",
+        "Reseta ARC"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que significa ARC em Swift?",
+      "options": [
+        "Automatic Reference Counting",
+        "Advanced Runtime Control",
+        "Automatic Resource Cleanup",
+        "Advanced Reference Compiler"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual palavra-chave ajuda a evitar retain cycles?",
+      "options": [
+        "weak",
+        "lazy",
+        "static",
+        "mutating"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quando usar unowned em vez de weak?",
+      "options": [
+        "Quando a referência nunca será nil",
+        "Quando há risco de retain cycle",
+        "Quando usamos structs",
+        "Quando ARC está desativado"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que acontece quando o contador de referências chega a zero?",
+      "options": [
+        "O objeto é desalocado",
+        "O objeto vira nil",
+        "ARC pausa",
+        "A memória é cacheada"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quais tipos usam ARC?",
+      "options": [
+        "Classes",
+        "Structs",
+        "Enums",
+        "Tuples"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual captura de closure pode causar retain cycle?",
+      "options": [
+        "self capturado fortemente",
+        "Constantes locais",
+        "Tipos por valor",
+        "Funções estáticas"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Como capturar self de forma fraca em uma closure?",
+      "options": [
+        "[weak self]",
+        "[unowned self]",
+        "[self weak]",
+        "[capture self]"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que é um retain cycle?",
+      "options": [
+        "Dois objetos se referenciando fortemente",
+        "Uso excessivo de weak",
+        "Erro de compilação",
+        "Stack overflow"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual tipo NÃO utiliza ARC?",
+      "options": [
+        "Struct",
+        "Class",
+        "UIView",
+        "NSObject"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Para que serve o deinit?",
+      "options": [
+        "Executa código ao desalocar o objeto",
+        "Inicializa memória",
+        "Limpa retain cycles",
+        "Reseta ARC"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que significa ARC em Swift?",
+      "options": [
+        "Automatic Reference Counting",
+        "Advanced Runtime Control",
+        "Automatic Resource Cleanup",
+        "Advanced Reference Compiler"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual palavra-chave ajuda a evitar retain cycles?",
+      "options": [
+        "weak",
+        "lazy",
+        "static",
+        "mutating"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quando usar unowned em vez de weak?",
+      "options": [
+        "Quando a referência nunca será nil",
+        "Quando há risco de retain cycle",
+        "Quando usamos structs",
+        "Quando ARC está desativado"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que acontece quando o contador de referências chega a zero?",
+      "options": [
+        "O objeto é desalocado",
+        "O objeto vira nil",
+        "ARC pausa",
+        "A memória é cacheada"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Quais tipos usam ARC?",
+      "options": [
+        "Classes",
+        "Structs",
+        "Enums",
+        "Tuples"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual captura de closure pode causar retain cycle?",
+      "options": [
+        "self capturado fortemente",
+        "Constantes locais",
+        "Tipos por valor",
+        "Funções estáticas"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Como capturar self de forma fraca em uma closure?",
+      "options": [
+        "[weak self]",
+        "[unowned self]",
+        "[self weak]",
+        "[capture self]"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "O que é um retain cycle?",
+      "options": [
+        "Dois objetos se referenciando fortemente",
+        "Uso excessivo de weak",
+        "Erro de compilação",
+        "Stack overflow"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Qual tipo NÃO utiliza ARC?",
+      "options": [
+        "Struct",
+        "Class",
+        "UIView",
+        "NSObject"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Gerenciamento de Memória (ARC)",
+      "text": "Para que serve o deinit?",
+      "options": [
+        "Executa código ao desalocar o objeto",
+        "Inicializa memória",
+        "Limpa retain cycles",
+        "Reseta ARC"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

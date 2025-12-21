@@ -39,7 +39,10 @@ final class AppCoordinator: ObservableObject {
         case .quiz(let filter):
             QuizCoordinator(
                 context: context,
-                filter: filter
+                filter: filter,
+                onFinish: {
+                    self.route = .setup
+                }
             )
             .start()
         }

@@ -12,12 +12,20 @@ struct QuizView: View {
         NavigationStack {
             VStack(spacing: 24) {
                 HStack {
+                    Button("Sair") {
+                        viewModel.quitQuiz()
+                    }
+                    .foregroundStyle(.red)
+
+                    Spacer()
+
                     Text(viewModel.title)
                         .font(.title).bold()
+
                     Spacer()
+
                     Text("Pontos: \(viewModel.score)")
                         .font(.headline)
-                        .accessibilityLabel("Pontuação \(viewModel.score)")
                 }
 
                 if let question = viewModel.currentQuestion {
@@ -130,6 +138,6 @@ struct QuizView: View {
 
 #Preview {
     let repo = QuestionRepository(context: PersistenceController.shared.container.viewContext)
-    let vm = QuizViewModel(repository: repo, filter: nil)
+    let vm = QuizViewModel(repository: repo, filter: nil, onExit: {})
     QuizView(viewModel: vm)
 }
