@@ -8,6 +8,7 @@ final class SetupViewModel: ObservableObject {
 
     @Published var selectedSubject: String?
     @Published var selectedTopic: String?
+    @Published var numberOfQuestions: Int = 10
 
     @Published private(set) var subjects: [String] = []
     @Published private(set) var topicsBySubject: [String: [String]] = [:]
@@ -62,7 +63,8 @@ final class SetupViewModel: ObservableObject {
     func makeQuizFilter() -> QuizFilter {
         QuizFilter(
             subject: selectedSubject,
-            topic: selectedTopic
+            topic: selectedTopic,
+            numberOfQuestions: numberOfQuestions
         )
     }
 
