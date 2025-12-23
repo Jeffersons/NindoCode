@@ -9,7 +9,7 @@ struct SetupFlowView: View {
         self.coordinator = coordinator
         _viewModel = StateObject(
             wrappedValue: SetupViewModel(
-                repository: coordinator.repository
+                repository: coordinator.quizRepository
             )
         )
     }
@@ -21,7 +21,7 @@ struct SetupFlowView: View {
             SelectSubjectView(
                 viewModel: viewModel,
                 onSubjectSelected: {
-                    coordinator.goToTopic()
+                    coordinator.goToTopics()
                 }
             )
 
@@ -29,12 +29,22 @@ struct SetupFlowView: View {
             SelectTopicView(
                 viewModel: viewModel,
                 onTopicSelected: {
-                    let filter = viewModel.makeQuizFilter()
-                    coordinator.onFinish(filter)
+                    coordinator.goToOptions()
                 },
                 onBack: {
-                    viewModel.resetSelection()
-                    coordinator.goBackToSubject()
+                    coordinator.goBackToSubject(viewModel: viewModel)
+                }
+            )
+
+        case .options:
+            QuizOptionsView(
+                viewModel: viewModel,
+                onStartQuiz: {
+                    let filter = viewModel.makeQuizFilter()
+                    coordinator.finishSetup(with: filter)
+                },
+                onBack: {
+                    coordinator.goBackToTopic(viewModel: viewModel)
                 }
             )
         }
