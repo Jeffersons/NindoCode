@@ -49,6 +49,14 @@ final class QuizViewModel: ObservableObject {
         }
         return "Quiz"
     }
+    
+    var answeredCount: Int {
+        currentIndex
+    }
+
+    var remainingCount: Int {
+        totalQuestions - currentIndex
+    }
 
     // MARK: - Load
 

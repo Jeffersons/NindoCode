@@ -48,15 +48,17 @@ final class QuestionRepository: QuestionRepositoryProtocol {
 
         let entities = try context.fetch(request)
 
-        return entities.map { entity in
+        let questions = entities.map {
             Question(
-                id: entity.safeId,
-                text: entity.safeText,
-                options: entity.options,
-                correctIndex: Int(entity.correctIndex),
-                subject: entity.safeSubject,
-                topic: entity.safeTopic
+                id: $0.safeId,
+                text: $0.safeText,
+                options: $0.options,
+                correctIndex: Int($0.correctIndex),
+                subject: $0.safeSubject,
+                topic: $0.safeTopic
             )
         }
+
+        return Array(questions.shuffled().prefix(filter?.numberOfQuestions ?? 10))
     }
 }
