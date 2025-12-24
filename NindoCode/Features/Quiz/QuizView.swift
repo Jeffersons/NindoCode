@@ -29,6 +29,17 @@ struct QuizView: View {
                 }
 
                 if let question = viewModel.currentQuestion {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("Pergunta \(viewModel.answeredCount + 1) de \(viewModel.totalQuestions)")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+
+                        ProgressView(
+                            value: Double(viewModel.answeredCount),
+                            total: Double(viewModel.totalQuestions)
+                        )
+                    }
+                    
                     VStack(alignment: .leading, spacing: 16) {
                         Text(question.text)
                             .font(.title3)
