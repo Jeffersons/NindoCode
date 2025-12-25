@@ -16,10 +16,11 @@ final class QuizViewModel: ObservableObject {
 
     private let repository: QuestionRepositoryProtocol
     private let filter: QuizFilter?
+    let onExit: () -> Void
 
     // MARK: - Data
 
-    private var questions: [Question] = []
+    private var questions: [QuizQuestion] = []
 
     // MARK: - Scoring
 
@@ -27,8 +28,6 @@ final class QuizViewModel: ObservableObject {
     private let pointsWrong = 5
 
     // MARK: - Init
-    
-    let onExit: () -> Void
 
     init(
         repository: QuestionRepositoryProtocol,
@@ -40,8 +39,8 @@ final class QuizViewModel: ObservableObject {
         self.onExit = onExit
         loadQuestions()
     }
-    
-    // MARK: Title
+
+    // MARK: - Title
 
     var title: String {
         if let subject = filter?.subject {
@@ -49,7 +48,9 @@ final class QuizViewModel: ObservableObject {
         }
         return "Quiz"
     }
-    
+
+    // MARK: - Progress
+
     var answeredCount: Int {
         currentIndex
     }
@@ -63,7 +64,13 @@ final class QuizViewModel: ObservableObject {
     func loadQuestions() {
         do {
             let fetched = try repository.fetchQuestions(filter: filter)
-            questions = fetched.shuffled()
+            let limited = applyLimitIfNeeded(fetched)
+            questions = buildQuizQuestions(from: limited)
+            
+            print(
+                "IDs:",
+                fetched.map { $0.id }
+            )
 
             resetState()
             showFinished = questions.isEmpty
@@ -74,9 +81,26 @@ final class QuizViewModel: ObservableObject {
             showFinished = true
         }
     }
-    
-    func quitQuiz() {
-        onExit()
+
+    private func applyLimitIfNeeded(_ questions: [Question]) -> [Question] {
+        guard let limit = filter?.numberOfQuestions else {
+            return questions.shuffled()
+        }
+        return Array(questions.shuffled().prefix(limit))
+    }
+
+    private func buildQuizQuestions(from questions: [Question]) -> [QuizQuestion] {
+        questions.map { question in
+            let correctAnswer = question.options[question.correctIndex]
+            let shuffledOptions = question.options.shuffled()
+            let newCorrectIndex = shuffledOptions.firstIndex(of: correctAnswer)!
+
+            return QuizQuestion(
+                text: question.text,
+                options: shuffledOptions,
+                correctIndex: newCorrectIndex
+            )
+        }
     }
 
     private func resetState() {
@@ -86,9 +110,23 @@ final class QuizViewModel: ObservableObject {
         isAnswered = false
     }
 
+    // MARK: - Navigation
+
+    func quitQuiz() {
+        onExit()
+    }
+
+    func dismissFinishedAlert() {
+        showFinished = false
+    }
+
+    func restart() {
+        loadQuestions()
+    }
+
     // MARK: - Accessors
 
-    var currentQuestion: Question? {
+    var currentQuestion: QuizQuestion? {
         guard questions.indices.contains(currentIndex) else { return nil }
         return questions[currentIndex]
     }
@@ -128,13 +166,5 @@ final class QuizViewModel: ObservableObject {
         if currentIndex >= questions.count {
             showFinished = true
         }
-    }
-    
-    func dismissFinishedAlert() {
-        showFinished = false
-    }
-
-    func restart() {
-        loadQuestions()
     }
 }
