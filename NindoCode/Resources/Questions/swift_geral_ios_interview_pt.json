@@ -1,0 +1,798 @@
+{
+  "subject": "Swift",
+  "version": 3,
+  "questions": [
+    {
+      "topic": "Geral iOS",
+      "text": "O que é ARC em Swift?",
+      "options": [
+        "Gerenciamento automático de memória",
+        "Gerenciamento manual",
+        "Garbage Collector",
+        "Reference Counter manual"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Qual tipo usa ARC em Swift?",
+      "options": [
+        "Classes",
+        "Structs",
+        "Enums",
+        "Tuplas"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é um retain cycle?",
+      "options": [
+        "Ciclo de referências fortes",
+        "Ciclo de threads",
+        "Deadlock",
+        "Race condition"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Para que serve weak?",
+      "options": [
+        "Evitar retain cycle",
+        "Aumentar performance",
+        "Criar cópia",
+        "Sincronizar threads"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Para que serve unowned?",
+      "options": [
+        "Referência não opcional sem retenção",
+        "Referência forte",
+        "Cópia de objeto",
+        "Referência thread-safe"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Quando usar unowned em vez de weak?",
+      "options": [
+        "Quando o objeto nunca será nil",
+        "Quando há concorrência",
+        "Quando há herança",
+        "Quando o objeto é opcional"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é value type?",
+      "options": [
+        "Tipo copiado por valor",
+        "Tipo copiado por referência",
+        "Classe",
+        "Objeto heap"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Struct é alocado onde?",
+      "options": [
+        "Stack ou otimizado pelo compilador",
+        "Heap sempre",
+        "GPU",
+        "Banco de dados"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Classe é alocada onde?",
+      "options": [
+        "Heap",
+        "Stack",
+        "Cache",
+        "Thread"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é mutating em struct?",
+      "options": [
+        "Permite modificar self",
+        "Cria nova instância",
+        "Bloqueia acesso",
+        "Torna thread-safe"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é protocol oriented programming?",
+      "options": [
+        "Uso de protocolos como base",
+        "Herança profunda",
+        "Programação funcional",
+        "Programação reativa"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é associatedtype?",
+      "options": [
+        "Tipo genérico em protocolo",
+        "Classe associada",
+        "Enum associado",
+        "Struct associado"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é escaping closure?",
+      "options": [
+        "Closure executada após o escopo",
+        "Closure inline",
+        "Closure síncrona",
+        "Closure imutável"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é non-escaping closure?",
+      "options": [
+        "Executada dentro do escopo",
+        "Executada async",
+        "Executada em background",
+        "Executada na main thread"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é @MainActor?",
+      "options": [
+        "Garante execução na main thread",
+        "Cria thread",
+        "Bloqueia concorrência",
+        "Executa em background"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é GCD?",
+      "options": [
+        "Sistema de concorrência da Apple",
+        "Banco de dados",
+        "Framework gráfico",
+        "Gerenciador de memória"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é DispatchQueue?",
+      "options": [
+        "Fila de execução",
+        "Thread",
+        "Lock",
+        "Semáforo"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é async/await?",
+      "options": [
+        "Modelo moderno de concorrência",
+        "Thread manual",
+        "Callback",
+        "Delegate"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Task?",
+      "options": [
+        "Unidade de trabalho concorrente",
+        "Thread fixa",
+        "Operação síncrona",
+        "Fila serial"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é TaskGroup?",
+      "options": [
+        "Agrupamento de tarefas async",
+        "Fila serial",
+        "Lock",
+        "Semáforo"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é structured concurrency?",
+      "options": [
+        "Concorrência com ciclo de vida controlado",
+        "Concorrência livre",
+        "Multithreading manual",
+        "Paralelismo irrestrito"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Sendable?",
+      "options": [
+        "Tipo seguro para concorrência",
+        "Tipo serializável",
+        "Tipo mutável",
+        "Tipo opcional"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é actor?",
+      "options": [
+        "Tipo que protege estado",
+        "Thread",
+        "Classe comum",
+        "Struct imutável"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é deadlock?",
+      "options": [
+        "Threads bloqueadas mutuamente",
+        "Loop infinito",
+        "Crash de memória",
+        "Race condition"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é race condition?",
+      "options": [
+        "Condição de disputa entre threads",
+        "Deadlock",
+        "Leak de memória",
+        "Crash"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é MVVM?",
+      "options": [
+        "Arquitetura View-ViewModel",
+        "Framework",
+        "Biblioteca",
+        "Padrão de UI"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Qual papel do ViewModel?",
+      "options": [
+        "Lógica e estado da View",
+        "Renderização",
+        "Persistência",
+        "Navegação"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Coordinator?",
+      "options": [
+        "Gerencia navegação",
+        "Gerencia UI",
+        "Gerencia dados",
+        "Gerencia memória"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é SwiftUI?",
+      "options": [
+        "Framework declarativo de UI",
+        "Framework imperativo",
+        "Engine gráfica",
+        "DSL de layout"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é @State?",
+      "options": [
+        "Estado local da View",
+        "Estado global",
+        "Estado persistente",
+        "Estado compartilhado"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é @Binding?",
+      "options": [
+        "Referência a estado externo",
+        "Cópia de valor",
+        "Estado global",
+        "Estado imutável"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é @ObservedObject?",
+      "options": [
+        "Observa objeto externo",
+        "Cria estado",
+        "Gerencia thread",
+        "Persiste dados"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é @StateObject?",
+      "options": [
+        "Cria e mantém objeto",
+        "Observa objeto",
+        "Copia objeto",
+        "Destrói objeto"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é @EnvironmentObject?",
+      "options": [
+        "Objeto compartilhado na hierarquia",
+        "Objeto local",
+        "Singleton",
+        "Struct global"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é diffable data source?",
+      "options": [
+        "Atualização eficiente de listas",
+        "Layout dinâmico",
+        "Persistência",
+        "Cache"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é reuseIdentifier?",
+      "options": [
+        "Reutilização de células",
+        "Identificador de view",
+        "ID de objeto",
+        "Chave de cache"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Auto Layout?",
+      "options": [
+        "Sistema de layout baseado em restrições",
+        "Layout absoluto",
+        "Framework gráfico",
+        "Motor de animação"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é intrinsic content size?",
+      "options": [
+        "Tamanho natural da view",
+        "Tamanho fixo",
+        "Tamanho máximo",
+        "Tamanho mínimo"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Core Data?",
+      "options": [
+        "Framework de persistência",
+        "Banco SQL puro",
+        "API de rede",
+        "Cache de memória"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é NSManagedObjectContext?",
+      "options": [
+        "Contexto de operações do Core Data",
+        "Thread",
+        "Banco",
+        "Entidade"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é faulting?",
+      "options": [
+        "Carregamento lazy no Core Data",
+        "Erro de fetch",
+        "Crash",
+        "Rollback"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é background context?",
+      "options": [
+        "Contexto fora da main thread",
+        "Thread principal",
+        "Fila serial",
+        "Fila concorrente"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é URLSession?",
+      "options": [
+        "API de rede",
+        "WebSocket",
+        "Cache",
+        "Parser JSON"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Codable?",
+      "options": [
+        "Serialização JSON",
+        "Persistência",
+        "Concorrência",
+        "UI"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Result?",
+      "options": [
+        "Representa sucesso ou falha",
+        "Enum genérico",
+        "Classe base",
+        "Protocol"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Error em Swift?",
+      "options": [
+        "Protocolo para erros",
+        "Classe",
+        "Struct",
+        "Enum obrigatório"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é throwing function?",
+      "options": [
+        "Função que pode lançar erro",
+        "Função async",
+        "Função privada",
+        "Função mutating"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é defer?",
+      "options": [
+        "Executa código ao sair do escopo",
+        "Executa async",
+        "Executa depois",
+        "Executa na main"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é guard?",
+      "options": [
+        "Early exit",
+        "Loop",
+        "Condicional tardio",
+        "Try-catch"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é optional chaining?",
+      "options": [
+        "Encadeamento seguro de optionals",
+        "Força unwrap",
+        "Cast",
+        "Binding"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é force unwrap?",
+      "options": [
+        "Acesso forçado a optional",
+        "Acesso seguro",
+        "Conversão",
+        "Cópia"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Por que evitar force unwrap?",
+      "options": [
+        "Pode causar crash",
+        "Lento",
+        "Consome memória",
+        "Não compila"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é lazy?",
+      "options": [
+        "Inicialização sob demanda",
+        "Inicialização imediata",
+        "Thread lenta",
+        "Objeto fraco"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Equatable?",
+      "options": [
+        "Protocolo de comparação",
+        "Protocolo de hash",
+        "Classe base",
+        "Enum"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Hashable?",
+      "options": [
+        "Protocolo para hashing",
+        "Protocolo de igualdade",
+        "Classe",
+        "Struct mutável"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Set em Swift?",
+      "options": [
+        "Coleção sem duplicatas",
+        "Lista ordenada",
+        "Fila",
+        "Mapa"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Dictionary?",
+      "options": [
+        "Mapa chave-valor",
+        "Lista",
+        "Fila",
+        "Set"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é generics?",
+      "options": [
+        "Código reutilizável com tipos",
+        "Herança",
+        "Protocolos",
+        "Closures"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é where em generics?",
+      "options": [
+        "Restrição de tipo",
+        "Loop",
+        "Filtro",
+        "Map"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é extension?",
+      "options": [
+        "Adicionar funcionalidades",
+        "Herança",
+        "Override",
+        "Subclass"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é final class?",
+      "options": [
+        "Classe não herdável",
+        "Classe imutável",
+        "Classe thread-safe",
+        "Classe privada"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é dynamic dispatch?",
+      "options": [
+        "Resolução em runtime",
+        "Resolução em compile time",
+        "Inline",
+        "Static call"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é static dispatch?",
+      "options": [
+        "Resolução em compile time",
+        "Resolução em runtime",
+        "Dynamic call",
+        "Override"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Teste Unitário?",
+      "options": [
+        "Teste isolado de unidade",
+        "Teste de UI",
+        "Teste manual",
+        "Teste de integração"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é XCTest?",
+      "options": [
+        "Framework de testes da Apple",
+        "Biblioteca externa",
+        "Framework de UI",
+        "Framework de rede"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é dependency injection?",
+      "options": [
+        "Injeção de dependências",
+        "Singleton",
+        "Factory fixa",
+        "Herança"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "Por que evitar singletons?",
+      "options": [
+        "Acoplamento e testes difíceis",
+        "Uso excessivo de memória",
+        "Performance",
+        "Crash"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é Clean Architecture?",
+      "options": [
+        "Separação de responsabilidades",
+        "Framework",
+        "Biblioteca",
+        "DSL"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é SOLID?",
+      "options": [
+        "Princípios de design OO",
+        "Framework",
+        "Linguagem",
+        "Padrão UI"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é LSP?",
+      "options": [
+        "Substituição de Liskov",
+        "Injeção",
+        "Herança múltipla",
+        "Encapsulamento"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é ISP?",
+      "options": [
+        "Interfaces específicas",
+        "Interface única",
+        "Classe base",
+        "Protocolo vazio"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "topic": "Geral iOS",
+      "text": "O que é DIP?",
+      "options": [
+        "Dependência de abstrações",
+        "Dependência concreta",
+        "Singleton",
+        "Factory"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}
